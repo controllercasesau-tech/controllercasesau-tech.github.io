@@ -511,6 +511,24 @@ form .btn {
 .swatch.grey  { background: #7a7a7a; }
 .swatch.pink  { background: #f3a6c8; }
 
+/* =========================
+   PRICE EMPHASIS
+   ========================= */
+
+.price {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ff7a00;
+}
+
+@media (max-width: 700px) {
+  .price {
+    font-size: 1.1rem;
+  }
+}
+
 </style>
 </head>
 
@@ -661,16 +679,14 @@ form .btn {
     PRICING
   ================-->
 <section id="pricing">
-  <h2>Pricing</h2>
+  <h2>At A Glance</h2>
 
   <ul class="pricing-list">
-    <li><span class="bullet"></span><span>Base Case: <strong>$9.99</strong></span></li>
-    <li><span class="bullet"></span><span>8BitDo Zero 2: <strong>$29.99</strong></span></li>
-    <li><span class="bullet"></span><span>8BitDo Zero 2 + Case Bundle: <strong>$34.99</strong></span></li>
-    <li><span class="bullet"></span><span>Name Personalisation: <strong>+$3</strong></span></li>
-    <li><span class="bullet"></span><span>Shipping (AusPost): <strong>$4</strong></span></li>
-    <li><span class="bullet"></span><span>Pickup: <strong>Perth / UWA</strong></span></li>
-  </ul>
+  <li><span class="bullet"></span><span>Prices shown on each product above</span></li>
+  <li><span class="bullet"></span><span>Name personalisation: <strong>+$3</strong></span></li>
+  <li><span class="bullet"></span><span>Shipping (Australia-wide): <strong>$4</strong></span></li>
+  <li><span class="bullet"></span><span>Pickup available: <strong>Perth / UWA</strong></span></li>
+</ul>
 </section>
 
 <!--================
