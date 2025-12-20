@@ -773,163 +773,162 @@ form textarea {
   </div>
 </section>
 
-  <!--================
+<!--================
       CONTACT
     ================-->
- <section id="contact">
+<section id="contact">
   <h2>Order / Enquiry</h2>
 
   <div style="max-width:520px; margin:0 auto; color:var(--text-muted);">
     <p style="text-align:center; margin-bottom:24px;">
-      Have a question or want to order a custom case?  
+      Have a question or want to order a custom case?
       Fill this in and it will go straight to my inbox.
     </p>
 
-<details open id="order-form">
-  <summary><strong>Order</strong></summary>
+    <details open id="order-form">
+      <summary><strong>Order</strong></summary>
 
-  <form action="https://api.web3forms.com/submit" method="POST"
-        style="display:flex; flex-direction:column; gap:14px;">
+      <form action="https://api.web3forms.com/submit" method="POST"
+            style="display:flex; flex-direction:column; gap:14px;">
 
-    <!-- Web3Forms ORDER key -->
-    <input type="hidden" name="access_key" value="36f6b61b-9dc7-466a-be64-692f03ff2cf5">
+        <!-- Web3Forms ORDER key -->
+        <input type="hidden" name="access_key" value="36f6b61b-9dc7-466a-be64-692f03ff2cf5">
 
-    <!-- Redirect after submit -->
-    <input type="hidden" name="redirect"
-           value="https://controllercasesau-tech.github.io/thanks.html">
+        <!-- Redirect after submit -->
+        <input type="hidden" name="redirect" value="https://controllercasesau-tech.github.io/thanks.html">
 
-    <!-- Honeypot -->
-    <input type="checkbox" name="botcheck" style="display:none;">
+        <!-- Honeypot -->
+        <input type="checkbox" name="botcheck" style="display:none;">
 
-    <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
-      <label for="order-name">Name</label>
-      <input id="order-name" name="name" type="text" required
-        style="margin-top:4px; padding:10px 12px; border-radius:8px;
-               border:1px solid #333; background:#0f1012; color:#f5f5f5;">
-    </div>
+        <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
+          <label for="order-name">Name</label>
+          <input id="order-name" name="name" type="text" required
+            style="margin-top:4px; padding:10px 12px; border-radius:8px;
+                   border:1px solid #333; background:#0f1012; color:#f5f5f5;">
+        </div>
 
-    <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
-      <label for="order-email">Email</label>
-      <input id="order-email" name="email" type="email" required
-        style="margin-top:4px; padding:10px 12px; border-radius:8px;
-               border:1px solid #333; background:#0f1012; color:#f5f5f5;">
-    </div>
+        <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
+          <label for="order-email">Email</label>
+          <input id="order-email" name="email" type="email" required
+            style="margin-top:4px; padding:10px 12px; border-radius:8px;
+                   border:1px solid #333; background:#0f1012; color:#f5f5f5;">
+        </div>
 
-    <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
-      <label for="product">Product</label>
-      <select id="product" name="product" required
-        style="margin-top:4px; padding:10px 12px; border-radius:8px;
-               border:1px solid #333; background:#0f1012; color:#f5f5f5;">
-        <option value="" disabled selected>Select a product</option>
-        <option>8BitDo Zero 2 Case</option>
-        <option>Joy-Con Tube Holder (Single)</option>
-        <option>Joy-Con Tube Holder (Double)</option>
-        <option>8BitDo Zero 2 ONLY</option>
-        <option>8BitDo Zero 2 + Case Bundle</option>
-      </select>
-    </div>
+        <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
+          <label for="product">Product</label>
+          <select id="product" name="product" required
+            style="margin-top:4px; padding:10px 12px; border-radius:8px;
+                   border:1px solid #333; background:#0f1012; color:#f5f5f5;">
+            <option value="" disabled selected>Select a product</option>
+            <option>8BitDo Zero 2 Case</option>
+            <option>Joy-Con Tube Holder (Single)</option>
+            <option>Joy-Con Tube Holder (Double)</option>
+            <option>8BitDo Zero 2 ONLY</option>
+            <option>8BitDo Zero 2 + Case Bundle</option>
+          </select>
+        </div>
 
-    <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
-      <label for="colour">Colour</label>
-      <select id="colour" name="colour" required
-        style="margin-top:4px; padding:10px 12px; border-radius:8px;
-               border:1px solid #333; background:#0f1012; color:#f5f5f5;">
-        <option value="" disabled selected>Select a case colour</option>
-        <option>White</option>
-        <option>Grey</option>
-        <option>Pink</option>
-        <option>Black</option>
-      </select>
-    </div>
+        <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
+          <label for="colour">Colour</label>
+          <select id="colour" name="colour" required
+            style="margin-top:4px; padding:10px 12px; border-radius:8px;
+                   border:1px solid #333; background:#0f1012; color:#f5f5f5;">
+            <option value="" disabled selected>Select a case colour</option>
+            <option>White</option>
+            <option>Grey</option>
+            <option>Pink</option>
+            <option>Black</option>
+          </select>
+        </div>
 
-    <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
-      <label for="delivery">Delivery method</label>
-      <select id="delivery" name="delivery" required
-        style="margin-top:4px; padding:10px 12px; border-radius:8px;
-               border:1px solid #333; background:#0f1012; color:#f5f5f5;">
-        <option value="" disabled selected>Select delivery</option>
-        <option>Pickup (Perth / UWA)</option>
-        <option>Shipping (AusPost)</option>
-      </select>
-    </div>
+        <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
+          <label for="delivery">Delivery method</label>
+          <select id="delivery" name="delivery" required
+            style="margin-top:4px; padding:10px 12px; border-radius:8px;
+                   border:1px solid #333; background:#0f1012; color:#f5f5f5;">
+            <option value="" disabled selected>Select delivery</option>
+            <option>Pickup (Perth / UWA)</option>
+            <option>Shipping (AusPost)</option>
+          </select>
+        </div>
 
-    <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
-      <label for="address">Shipping address (if shipping)</label>
-      <textarea id="address" name="shipping_address" rows="3"
-        style="margin-top:4px; padding:10px 12px; border-radius:8px;
-               border:1px solid #333; background:#0f1012;
-               color:#f5f5f5; resize:vertical;"></textarea>
-    </div>
+        <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
+          <label for="address">Shipping address (if shipping)</label>
+          <textarea id="address" name="shipping_address" rows="3"
+            style="margin-top:4px; padding:10px 12px; border-radius:8px;
+                   border:1px solid #333; background:#0f1012;
+                   color:#f5f5f5; resize:vertical;"></textarea>
+        </div>
 
-    <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
-      <label for="notes">Notes / personalisation</label>
-      <textarea id="notes" name="notes" rows="3"
-        placeholder="Name engraving, special requests, controller colour etc."
-        style="margin-top:4px; padding:10px 12px; border-radius:8px;
-               border:1px solid #333; background:#0f1012;
-               color:#f5f5f5; resize:vertical;"></textarea>
-    </div>
+        <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
+          <label for="notes">Notes / personalisation</label>
+          <textarea id="notes" name="notes" rows="3"
+            placeholder="Name engraving, special requests, controller colour etc."
+            style="margin-top:4px; padding:10px 12px; border-radius:8px;
+                   border:1px solid #333; background:#0f1012;
+                   color:#f5f5f5; resize:vertical;"></textarea>
+        </div>
 
-    <button type="submit" class="btn primary">
-      Place order
-    </button>
+        <button type="submit" class="btn primary">Place order</button>
 
-    <p style="font-size:0.8rem; color:#777; margin-top:4px;">
-      Custom cases are printed to order. Details will be confirmed via email before printing.
-    </p>
+        <p style="font-size:0.8rem; color:#777; margin-top:4px;">
+          Custom cases are printed to order. Details will be confirmed via email before printing.
+        </p>
 
-  </form>
-</details>  
+      </form>
+    </details>
 
-<details>
-  <summary><strong>Enquiry</strong></summary>
+    <details>
+      <summary><strong>Enquiry</strong></summary>
 
-  <!-- Web3 form -->
-  <form action="https://api.web3forms.com/submit" method="POST" style="display:flex; flex-direction:column; gap:14px;">
+      <form action="https://api.web3forms.com/submit" method="POST"
+            style="display:flex; flex-direction:column; gap:14px;">
 
-    <!-- Web3Forms required access key -->
-    <input type="hidden" name="access_key" value="9b49661e-fd79-46b4-a9d1-75674c412619">
+        <!-- Web3Forms ENQUIRY key -->
+        <input type="hidden" name="access_key" value="9b49661e-fd79-46b4-a9d1-75674c412619">
 
-    <!-- Redirect to your thanks.html page -->
-    <input type="hidden" name="redirect" value="https://controllercasesau-tech.github.io/thanks.html">
+        <!-- Redirect to your thanks.html page -->
+        <input type="hidden" name="redirect" value="https://controllercasesau-tech.github.io/thanks.html">
 
-    <!-- Honeypot spam prevention -->
-    <input type="checkbox" name="botcheck" style="display:none;">
+        <!-- Honeypot spam prevention -->
+        <input type="checkbox" name="botcheck" style="display:none;">
 
-    <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
-      <label for="name">Name</label>
-      <input id="name" name="name" type="text" required
-        style="margin-top:4px; padding:10px 12px; border-radius:8px; border:1px solid #333; background:#0f1012; color:#f5f5f5;">
-    </div>
+        <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
+          <label for="enq-name">Name</label>
+          <input id="enq-name" name="name" type="text" required
+            style="margin-top:4px; padding:10px 12px; border-radius:8px; border:1px solid #333; background:#0f1012; color:#f5f5f5;">
+        </div>
 
-    <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required
-        style="margin-top:4px; padding:10px 12px; border-radius:8px; border:1px solid #333; background:#0f1012; color:#f5f5f5;">
-    </div>
+        <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
+          <label for="enq-email">Email</label>
+          <input id="enq-email" name="email" type="email" required
+            style="margin-top:4px; padding:10px 12px; border-radius:8px; border:1px solid #333; background:#0f1012; color:#f5f5f5;">
+        </div>
 
-    <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
-      <label for="controller">Controller type</label>
-      <input id="controller" name="controller_type" type="text" placeholder="8BitDoZero2 / Joycon / Other"
-        style="margin-top:4px; padding:10px 12px; border-radius:8px; border:1px solid #333; background:#0f1012; color:#f5f5f5;">
-    </div>
+        <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
+          <label for="enq-controller">Controller type</label>
+          <input id="enq-controller" name="controller_type" type="text" placeholder="8BitDoZero2 / Joycon / Other"
+            style="margin-top:4px; padding:10px 12px; border-radius:8px; border:1px solid #333; background:#0f1012; color:#f5f5f5;">
+        </div>
 
-    <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
-      <label for="message">Message / enquiry</label>
-      <textarea id="message" name="message" rows="4" required
-        style="margin-top:4px; padding:10px 12px; border-radius:8px; border:1px solid #333; background:#0f1012; color:#f5f5f5; resize:vertical;"></textarea>
-    </div>
+        <div style="display:flex; flex-direction:column; text-align:left; font-size:0.9rem;">
+          <label for="enq-message">Message / enquiry</label>
+          <textarea id="enq-message" name="message" rows="4" required
+            style="margin-top:4px; padding:10px 12px; border-radius:8px; border:1px solid #333; background:#0f1012; color:#f5f5f5; resize:vertical;"></textarea>
+        </div>
 
-    <button type="submit" class="btn primary">
-      Send enquiry
-    </button>
+        <button type="submit" class="btn primary">Send enquiry</button>
 
-    <p style="font-size:0.8rem; color:#777; margin-top:4px;">
-      I’ll get back to you as soon as I can — this is a side project, so replies might be in the evening.
-    </p>
+        <p style="font-size:0.8rem; color:#777; margin-top:4px;">
+          I’ll get back to you as soon as I can — this is a side project, so replies might be in the evening.
+        </p>
 
-  </form>
-</details>
+      </form>
+    </details>
+
+  </div>
+</section>
+
 
 
 
