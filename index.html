@@ -12,345 +12,113 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+html { scroll-behavior: smooth; }
 
-html {
-  scroll-behavior: smooth;
+:root{
+  --bg: #111;
+  --panel: #1a1a1a;
+  --text: #f5f5f5;
+  --muted: #aaa;
+  --muted2: #ccc;
+  --accent: #ff7a00;
+  --accent2: #f47a00;
+  --shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
 
 /* =========================
    GLOBAL RESET
    ========================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
+body{
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
                Roboto, Helvetica, Arial, sans-serif;
-  background: #111;
-  color: #f5f5f5;
+  background: var(--bg);
+  color: var(--text);
   line-height: 1.5;
 }
 
-/* =========================
-   HEADER / NAVBAR (DESKTOP)
-   ========================= */
+/* Global links */
+a{ color: inherit; text-decoration: none; }
 
-header {
+/* =========================
+   HEADER / NAVBAR
+   ========================= */
+header{
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 32px;
-  background: #111;
+  background: var(--bg);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo img {
-  width: 48px;
-  height: 48px;
-}
-
-.logo-title {
+.logo{ display: flex; align-items: center; gap: 12px; }
+.logo img{ width: 48px; height: 48px; }
+.logo-title{
   font-size: 1.4rem;
   font-weight: 700;
-  color: #ff7a00;
+  color: var(--accent);
 }
 
-nav {
-  display: flex;
-  align-items: center;
-}
-
-nav a {
+nav{ display: flex; align-items: center; }
+nav a{
   margin-left: 24px;
-  text-decoration: none;
-  color: #f5f5f5;
+  color: var(--text);
   font-size: 0.95rem;
 }
+nav a:hover{ text-decoration: underline; }
 
-nav a:hover {
-  text-decoration: underline;
+.nav-links a.active{
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
 }
 
 /* =========================
-   HERO SECTION
+   HERO
    ========================= */
-
-.hero {
+.hero{
   text-align: center;
-  padding: 90px 24px 45px;
+  padding: 80px 20px 20px;
 }
 
-.hero h1 {
+.hero h1{
   font-size: 3rem;
-  color: #ff7a00;
+  color: var(--accent);
   margin-bottom: 18px;
 }
 
-.hero p {
+.hero p{
   max-width: 620px;
   margin: 0 auto 30px;
   font-size: 1.15rem;
-  color: #ccc;
+  color: var(--muted2);
 }
 
-.hero p.hero-guidance {
-  margin: 18px auto 0;   /* top, left/right, bottom */
+.hero p.hero-guidance{
+  margin: 18px auto 0;
   max-width: 620px;
   font-size: 0.9rem;
-  color: #aaa;
+  color: var(--muted);
   text-align: center;
 }
-
 
 /* =========================
    BUTTONS
    ========================= */
-
-.btn-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  justify-content: center;
-  max-width: 520px;
-  margin: 0 auto;
-
+.btn{
+  display: inline-flex;
   align-items: center;
-}
-
-.btn-row .btn {
-  min-height: 100px;              /* forces equal height */
-  display: flex;
-  align-items: center;           /* vertical centering */
-  justify-content: center;       /* horizontal centering */
-  text-align: center;
-}
-
-.btn {
+  justify-content: center;
   padding: 14px 26px;
   border-radius: 12px;
   font-weight: 600;
-  text-decoration: none;
   text-align: center;
-  border: 2px solid #ff7a00;
-  transition: background 0.15s ease, color 0.15s ease;
-}
+  border: 2px solid var(--accent);
+  cursor: pointer;
 
-.btn.primary {
-  background: #ff7a00;
-  color: #111;
-}
-
-.btn.primary:hover {
-  background: #ff9a33;
-}
-
-.btn.outline {
-  background: transparent;
-  color: #ff7a00;
-}
-
-.btn.outline:hover {
-  background: #ff7a00;
-  color: #111;
-}
-
-/* =========================
-   SECTIONS (GENERAL)
-   ========================= */
-
-section {
-  padding: 50px 24px;
-}
-
-section h2 {
-  font-size: 2.4rem;
-  margin-bottom: 30px;
-  text-align: center;
-  color: #ff7a00;
-}
-
-/* =========================
-   GALLERY
-   ========================= */
-
-.gallery {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-.card {
-  background: #1a1a1a;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-}
-
-.card img {
-  width: 100%;
-  display: block;
-}
-
-.card-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  padding: 14px 16px 6px;
-}
-
-.card-desc {
-  padding: 0 16px 16px;
-  font-size: 0.9rem;
-  color: #ccc;
-}
-
-/* =========================
-   MOBILE FIXES (STEP 2)
-   ========================= */
-
-@media (max-width: 700px) {
-
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px 16px;
-  }
-
-  .logo img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .logo-title {
-    font-size: 1.2rem;
-  }
-
-  nav {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 14px;
-  }
-
-  nav a {
-    margin-left: 0;
-    font-size: 0.9rem;
-    white-space: nowrap;
-  }
-
-  .hero {
-    padding: 70px 16px;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero p {
-    font-size: 1.05rem;
-  }
-
-  .btn-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 14px;
-  }
-
-  .btn {
-    width: 100%;
-  }
-}
-
-/* =========================
-   LINK COLOUR OVERRIDES
-   ========================= */
-
-/* Global links */
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Hero buttons */
-.btn {
-  color: #111;
-}
-
-.btn.outline {
-  color: #ff7a00;
-}
-
-.btn.outline:hover {
-  color: #111;
-}
-
-.btn-orange.order-form {
-  box-shadow: 0 0 0 1px rgba(255,140,0,0.4);
-}
-
-/* Gallery card links (e.g. Learn how to use with Anki) */
-.card a {
-  color: #ccc;
-  font-size: 0.9rem;
-  display: inline-block;
-  margin-top: 6px;
-}
-
-.card a:hover {
-  color: #ff7a00;
-  text-decoration: underline;
-}
-
-/* =========================
-   FIX HERO BUTTON TEXT COLOURS
-   ========================= */
-
-/* Base button text should be white (on dark background) */
-.btn {
-  color: #fff;
-}
-
-/* Primary (orange filled) should have dark text */
-.btn.primary {
-  color: #111;
-}
-
-/* Outline buttons: orange text on dark background */
-.btn.outline {
-  color: #ff7a00;
-}
-
-/* Hover behaviour */
-.btn.outline:hover {
-  background: #ff7a00;
-  color: #111;
-}
-
-.btn.primary:hover {
-  color: #111;
-}
-
-/* =========================
-   HERO BUTTON HOVER ANIMATION
-   ========================= */
-
-/* Base transition */
-.btn {
   transition:
     transform 0.18s ease,
     box-shadow 0.18s ease,
@@ -358,86 +126,175 @@ a {
     color 0.18s ease;
 }
 
-/* Only apply hover effects on devices that support hover */
-@media (hover: hover) {
+/* Primary = BUY NOW (pill, prominent) */
+.btn.primary{
+  border-color: var(--accent2);
+  background: var(--accent2);
+  color: #000;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  box-shadow: 0 6px 18px rgba(244, 122, 0, 0.35);
+}
 
-  .btn:hover {
-    transform: translateY(-2px);
+.btn.primary:hover{
+  background: #ff8c1a;
+  box-shadow: 0 10px 26px rgba(244, 122, 0, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn.primary:active{
+  transform: translateY(0);
+  box-shadow: 0 4px 14px rgba(244, 122, 0, 0.3);
+}
+
+/* Outline = secondary button style */
+.btn.outline{
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn.outline:hover{
+  background: var(--accent);
+  color: #111;
+}
+
+/* Secondary = your Instagram CTA (outlined accent, but not "primary") */
+.btn.secondary{
+  background: transparent;
+  color: var(--accent2);
+  border: 2px solid var(--accent2);
+  box-shadow: none;
+}
+
+.btn.secondary:hover{
+  background: rgba(244, 122, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+/* Hover lift only on devices that support hover */
+@media (hover: hover){
+  .btn:hover{
     box-shadow: 0 6px 18px rgba(255, 122, 0, 0.25);
   }
-
-  .btn.outline:hover {
-    box-shadow: 0 6px 18px rgba(255, 122, 0, 0.35);
+  .btn.primary:hover{
+    box-shadow: 0 10px 26px rgba(244, 122, 0, 0.45);
   }
-
-  .btn.primary:hover {
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  .btn.outline:hover{
+    box-shadow: 0 6px 18px rgba(255, 122, 0, 0.35);
   }
 }
 
-/* =========================
-   FORM BUTTON = HERO BUTTON
-   ========================= */
+/* Button rows (hero + order CTAs) */
+.btn-row{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  justify-content: center;
+  max-width: 520px;
+  margin: 0 auto;
+  align-items: center;
+}
 
-form .btn {
-  display: inline-block;
-  padding: 14px 26px;
-  border-radius: 12px;
-  border: 2px solid #ff7a00;
-  background: #ff7a00;
+.btn-row .btn{
+  min-height: 100px;
+}
+
+/* =========================
+   SECTIONS (GENERAL)
+   ========================= */
+section{ padding: 40px 24px; }
+
+section h2{
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  text-align: center;
+  color: var(--accent);
+}
+
+/* =========================
+   GALLERY
+   ========================= */
+.gallery{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card{
+  background: var(--panel);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card img{ width: 100%; display: block; }
+
+.card-title{
+  font-size: 1.05rem;
   font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
+  padding: 14px 16px 6px;
 }
 
-/* Ensure hover animation applies */
-@media (hover: hover) {
-  form .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(255, 122, 0, 0.35);
-  }
+.card-desc{
+  padding: 0 16px 16px;
+  font-size: 0.9rem;
+  color: var(--muted2);
+}
+
+/* Card links (e.g., Anki link) */
+.card a{
+  color: var(--muted2);
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-top: 6px;
+}
+.card a:hover{
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Align Buy Now buttons across cards */
+.card .btn.primary{
+  margin-top: auto;     /* pushes to bottom */
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+}
+
+/* Price emphasis */
+.price{
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
 }
 
 /* =========================
-   SECTION SPACING TIGHTENING
+   ORDERING LISTS (pricing + order)
    ========================= */
-
-@media (max-width: 700px) {
-  section {
-    padding: 48px 16px;
-  }
-
-  section h2 {
-    margin-bottom: 20px;
-  }
-}
-
-/* =========================
-   CONTACT FOOTNOTE SPACING
-   ========================= */
-
-.form-note {
-  margin-bottom: 50px;
-}
-
-/* =========================
-   PRICING + ORDER ALIGNMENT
-   ========================= */
-
 .pricing-list,
-.order-list {
+.order-list{
   list-style: none;
   max-width: 650px;
   margin: 0 auto;
   padding: 0;
-  color: var(--text-muted);
+  color: var(--muted);
   font-size: 1.1rem;
   text-align: left;
 }
 
-/* shared row alignment */
 .pricing-list li,
-.order-list li {
+.order-list li{
   display: grid;
   grid-template-columns: 34px 1fr;
   align-items: center;
@@ -445,8 +302,7 @@ form .btn {
   margin-bottom: 14px;
 }
 
-/* pricing bullet */
-.pricing-list .bullet {
+.pricing-list .bullet{
   width: 18px;
   height: 18px;
   background: orange;
@@ -454,12 +310,9 @@ form .btn {
   display: inline-block;
 }
 
-.pricing-list strong {
-  color: #fff;
-}
+.pricing-list strong{ color: #fff; }
 
-/* order step number */
-.order-list .step {
+.order-list .step{
   width: 28px;
   height: 28px;
   background: #2a2a2a;
@@ -471,37 +324,28 @@ form .btn {
   justify-content: center;
 }
 
-/* CTA row spacing for order section */
-.order-ctas {
-  margin-top: 30px;
-}
+.order-ctas{ margin-top: 30px; }
 
-/* Mobile tightening */
-@media (max-width: 700px) {
-  .pricing-list,
-  .order-list {
-    font-size: 1rem;
-  }
-
-  .pricing-list li,
-  .order-list li {
-    margin-bottom: 12px;
-  }
+.order-note{
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
 }
 
 /* =========================
    COLOURS AVAILABLE
    ========================= */
-
-.colours-note {
+.colours-note{
   max-width: 640px;
   margin: 0 auto 36px;
   text-align: center;
   font-size: 1rem;
-  color: #ccc;
+  color: var(--muted2);
 }
 
-.colour-grid {
+.colour-grid{
   max-width: 720px;
   margin: 0 auto;
   display: grid;
@@ -509,8 +353,8 @@ form .btn {
   gap: 24px;
 }
 
-.colour-card {
-  background: #1a1a1a;
+.colour-card{
+  background: var(--panel);
   border-radius: 14px;
   padding: 22px 14px;
   display: flex;
@@ -520,86 +364,125 @@ form .btn {
   box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
 
-.colour-card .label {
+.colour-card .label{
   font-size: 0.95rem;
-  color: #f5f5f5;
+  color: var(--text);
   font-weight: 500;
 }
 
-/* Swatches */
-.swatch {
+.swatch{
   width: 56px;
   height: 56px;
   border-radius: 50%;
   border: 2px solid #333;
 }
 
-/* Active colours */
-.swatch.black { background: #0f0f0f; }
-.swatch.white { background: #f2f2f2; }
-.swatch.grey  { background: #7a7a7a; }
-.swatch.pink  { background: #f3a6c8; }
+.swatch.black{ background: #0f0f0f; }
+.swatch.white{ background: #f2f2f2; }
+.swatch.grey{ background: #7a7a7a; }
+.swatch.pink{ background: #f3a6c8; }
 
 /* =========================
-   PRICE EMPHASIS
+   DETAILS + FORM
    ========================= */
-
-.price {
-  display: inline-block;
-  margin-top: 6px;
-  font-size: 1.15rem;
+details summary{
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #ff7a00;
-}
-
-@media (max-width: 700px) {
-  .price {
-    font-size: 1.1rem;
-  }
-}
-
-/* Make Order / Inquiry summary much larger */
-details summary {
-  font-size: 1.5rem;        /* increase text + triangle size */
-  font-weight: 700;
-  color: #ff8c00;   
+  color: #ff8c00;
   padding: 12px 0;
   cursor: pointer;
 }
 
-/* Optional: add spacing so it feels intentional */
-details {
-  margin-bottom: 20px;
-}
+details{ margin-bottom: 20px; }
 
-form {
-  font-size: 1rem;
-}
-
-form label {
-  font-size: 1rem;
-}
+form{ font-size: 1rem; }
+form label{ font-size: 1rem; }
 
 form input,
 form select,
-form textarea {
+form textarea{
   font-size: 1rem;
-
-  .nav-links a.active {
-  color: #ff7a00;
-  border-bottom: 2px solid #ff7a00;
 }
 
+/* Make form submit button match button system */
+form .btn{
+  border: 2px solid var(--accent);
+  background: var(--accent);
+  color: #111;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-footer {
+@media (hover: hover){
+  form .btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 122, 0, 0.35);
+  }
+}
+
+/* Contact note spacing */
+.form-note{ margin-bottom: 50px; }
+
+/* =========================
+   FOOTER
+   ========================= */
+footer{
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
+/* =========================
+   MOBILE
+   ========================= */
+@media (max-width: 700px){
+  header{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .logo img{ width: 40px; height: 40px; }
+  .logo-title{ font-size: 1.2rem; }
+
+  nav{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+  }
+  nav a{
+    margin-left: 0;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .hero{ padding: 70px 16px; }
+  .hero h1{ font-size: 2.2rem; }
+  .hero p{ font-size: 1.05rem; }
+
+  section{ padding: 48px 16px; }
+  section h2{ margin-bottom: 20px; }
+
+  .btn-row{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .btn{ width: 100%; }
+
+  .pricing-list,
+  .order-list{ font-size: 1rem; }
+
+  .pricing-list li,
+  .order-list li{ margin-bottom: 12px; }
+
+  .price{ font-size: 1.1rem; }
+}
 </style>
+
 </head>
 
 <body>
@@ -615,8 +498,7 @@ footer {
 
   <nav>
     <a href="#gallery">Gallery</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#order">Order</a>
+    <a href="#ordering">Ordering</a>
     <a href="anki-controllers.html">Using Controllers with Anki</a>
     <a href="#contact">Contact</a>
     <a href="about.html">About</a>
@@ -633,17 +515,6 @@ footer {
       Strong, lightweight and personalised controller cases, perfect for protecting your controller buttons in your bag — printed locally in Perth using high-quality PLA+.
     </p>
 
-  <div class="btn-row">
-    <a href="#order-form" class="btn btn-orange order-form">Order Form</a>
-    <a href="https://instagram.com/ControllerCases" target="_blank" class="btn btn-orange">Order via Instagram</a>
-    <a href="mailto:controllercasesau@gmail.com" class="btn btn-outline">Order via Email</a>
-    <a href="anki-controllers.html" class="btn btn-outline">Using Controllers with Anki</a>
-</div>
-
-  <p class="hero-guidance">
-    Fastest option: use the <strong>Order Form</strong> below.  
-    Instagram and Email are also available.
-  </p>
 
   </div>
 
@@ -655,61 +526,90 @@ footer {
 
   <div class="gallery">
 
-    <!-- Standard Case -->
+    <!-- 8BitDo Zero 2 Case -->
     <div class="card">
-      <img src="CaseStandard.jpg" alt="Case Photo">
-      <div class="card-title">8BitDo Zero 2 Case (Standard)</div>
+      <img src="CaseStandard.jpg" alt="8BitDo Zero 2 Case">
+      <div class="card-title">8BitDo Zero 2 Case</div>
       <div class="card-desc">
         Strong PLA+ daily carry design. <span class="price">$9.99</span>.
       </div>
+
+      <a class="btn primary" href="https://buy.stripe.com/7sY4gB6SScV45Argpz7Vm01" target="_blank" rel="noopener">
+        Buy now
+      </a>
     </div>
-    
-    <!-- 8BitDo Zero 2 Controller -->
+
+    <!-- 8BitDo Zero 2 Controller Only -->
     <div class="card">
       <img src="8bitdozero2.jpg" alt="8BitDo Zero 2 Controller">
-      <div class="card-title">8BitDo Zero 2 Controller</div>
+      <div class="card-title">8BitDo Zero 2 Controller (Controller Only)</div>
       <div class="card-desc">
         Compact Bluetooth controller ideal for Anki. <span class="price">$29.99</span>.
         <br>
-        <a href="anki-controllers.html" class="anki-link">Learn how to use with Anki →</a>
+        <a href="anki-controllers.html" class="anki-link">
+          Learn how to use with Anki →
+        </a>
       </div>
+
+      <a class="btn primary" href="https://buy.stripe.com/aFafZj1yy7AKaUL7T37Vm05" target="_blank" rel="noopener">
+        Buy now
+      </a>
     </div>
 
     <!-- 8BitDo Zero 2 + Case Bundle -->
     <div class="card">
-      <img src="8bitdozero2bundle.jpg" alt="8BitDo Zero 2 Bundle">
+      <img src="8bitdozero2bundle.jpg" alt="8BitDo Zero 2 + Case Bundle">
       <div class="card-title">8BitDo Zero 2 + Case Bundle</div>
       <div class="card-desc">
-        One 8BitDo Zero 2 Controller + protective case. Save $5. <span class="price">$34.99</span>.
+        One controller + protective case. Save $5.
+        <span class="price">$34.99</span>.
         <br>
-        <a href="anki-controllers.html" class="anki-link">Learn how to use with Anki →</a>
+        <a href="anki-controllers.html" class="anki-link">
+          Learn how to use with Anki →
+        </a>
       </div>
+
+      <a class="btn primary" href="https://buy.stripe.com/14A00l4KKbR05Ar0qB7Vm02" target="_blank" rel="noopener">
+        Buy now
+      </a>
     </div>
 
-    <!-- JoyCon Double -->
+    <!-- JoyCon Tube Case (Double) -->
     <div class="card">
-      <img src="JoyConTubeDouble.jpg" alt="JoyCon Tube Holder Double">
+      <img src="JoyConTubeDouble.jpg" alt="JoyCon Tube Case Double">
       <div class="card-title">JoyCon (Switch 1) Tube Case (Double)</div>
       <div class="card-desc">
-        Compact protective tube-style holder for TWO Joy-Con controllers. <span class="price">$9.99</span>.
+        Compact protective tube-style holder for TWO Joy-Con controllers.
+        <span class="price">$9.99</span>.
       </div>
+
+      <a class="btn primary" href="https://buy.stripe.com/aFacN76SS5sCaUL0qB7Vm03
+" target="_blank" rel="noopener">
+        Buy now
+      </a>
     </div>
 
-    <!-- JoyCon Single -->
+    <!-- JoyCon Tube Case (Single) -->
     <div class="card">
-      <img src="JoyConTubeSingle.jpg" alt="JoyCon Tube Holder Single">
+      <img src="JoyConTubeSingle.jpg" alt="JoyCon Tube Case Single">
       <div class="card-title">JoyCon (Switch 1) Tube Case (Single)</div>
       <div class="card-desc">
-        Minimal tube-style holder for ONE Joy-Con. <span class="price">$5.99</span>.
+        Minimal tube-style holder for ONE Joy-Con.
+        <span class="price">$5.99</span>.
       </div>
+
+      <a class="btn primary" href="https://buy.stripe.com/7sY14pdhg1cm1kbehr7Vm04" target="_blank" rel="noopener">
+        Buy now
+      </a>
     </div>
 
-    <!-- Engraved Name -->
+    <!-- Engraving (Info only) -->
     <div class="card">
-      <img src="CaseEngraved.jpg" alt="Engraved Name">
-      <div class="card-title">Engraved Name</div>
+      <img src="CaseEngraved.jpg" alt="Engraving add-on">
+      <div class="card-title">Name Engraving (Add-on)</div>
       <div class="card-desc">
-        Add your name to ANY case. <span class="price">+ $3</span>.
+        Optional add-on available at checkout.
+        <span class="price">+ $2.99</span>.
       </div>
     </div>
 
@@ -752,37 +652,32 @@ footer {
   </div>
 </section>
 
- <!--================
-    PRICING
+<!--================
+    ORDERING
   ================-->
-<section id="pricing">
-  <h2>At A Glance</h2>
+<section id="ordering">
+  <h2>Ordering</h2>
 
   <ul class="pricing-list">
-  <li><span class="bullet"></span><span>Prices shown on each product above</span></li>
-  <li><span class="bullet"></span><span>Name personalisation: <strong>+$3</strong></span></li>
-  <li><span class="bullet"></span><span>Shipping (Australia-wide): <strong>$12</strong></span></li>
-  <li><span class="bullet"></span><span>Pickup available: <strong>Perth / UWA</strong></span></li>
-</ul>
-</section>
-
-<!--================
-    ORDER
-  ================-->
-<section id="order">
-  <h2>How to Order</h2>
+    <li><span class="bullet"></span><span>Prices shown on each product above</span></li>
+    <li><span class="bullet"></span><span>Optional name engraving at checkout: <strong>+$2.99</strong></span></li>
+    <li><span class="bullet"></span><span>Shipping (Australia-wide): <strong>$12</strong></span></li>
+    <li><span class="bullet"></span><span>Pickup available: <strong>Perth / UWA</strong></span></li>
+  </ul>
 
   <ol class="order-list">
-    <li><span class="step">1</span><span>Choose your case (8BitDo Zero 2 / JoyCon / Other)</span></li>
-    <li><span class="step">2</span><span>Pick a colour for case / controller</span></li>
-    <li><span class="step">3</span><span>Add custom name / engraving</span></li>
-    <li><span class="step">4</span><span>DM us, fill out the order form below or email your order</span></li>
-    <li><span class="step">5</span><span>We’ll confirm print time & pickup / shipping</span></li>
-    <li><span class="step">6</span><span>Payment via Bank Transfer or PayPal</span></li>
+    <li><span class="step">1</span><span>Click <strong>Buy now</strong> on your product above</span></li>
+    <li><span class="step">2</span><span>Choose quantity and add engraving (optional)</span></li>
+    <li><span class="step">3</span><span>Enter your details and complete payment via <strong>Stripe</strong></span></li>
+    <li><span class="step">4</span><span>Order confirmation and pickup / shipping will be arranged via <strong>email</strong></span></li>
   </ol>
 
+  <p class="order-note">
+    Ordering is also available via the form below, Instagram DM, or email. Bank transfer payments are accepted on request.
+  </p>
+
   <div class="btn-row order-ctas">
-    <a class="btn primary" href="https://instagram.com/ControllerCases" target="_blank" rel="noopener">Order via Instagram</a>
+    <a class="btn secondary" href="https://instagram.com/ControllerCases" target="_blank" rel="noopener">Order via Instagram</a>
     <a class="btn outline" href="mailto:controllercasesau@gmail.com">Order via Email</a>
   </div>
 </section>
