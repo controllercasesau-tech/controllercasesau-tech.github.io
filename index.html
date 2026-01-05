@@ -12,6 +12,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* =========================
+   BASE + VARIABLES
+   ========================= */
 html { scroll-behavior: smooth; }
 
 :root{
@@ -25,10 +28,13 @@ html { scroll-behavior: smooth; }
   --shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
 
-/* =========================
-   GLOBAL RESET
-   ========================= */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+*{ box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body{
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 body{
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -42,38 +48,144 @@ body{
 a{ color: inherit; text-decoration: none; }
 
 /* =========================
-   HEADER / NAVBAR
+   LAYOUT HELPERS
    ========================= */
-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 32px;
-  background: var(--bg);
+section{
+  padding: 48px 16px;
+}
+
+section h2{
+  font-size: 2.2rem;
+  margin-bottom: 26px;
+  text-align: center;
+  color: var(--accent);
+}
+
+/* =========================
+   HEADER / NAVBAR (RESPONSIVE)
+   ========================= */
+.site-header{
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+  background: var(--bg);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.logo{ display: flex; align-items: center; gap: 12px; }
-.logo img{ width: 48px; height: 48px; }
-.logo-title{
-  font-size: 1.4rem;
+.site-header .nav-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.site-header .logo{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.site-header .logo img{
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  border-radius: 10px;
+}
+
+.site-header .logo-title{
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-nav{ display: flex; align-items: center; }
-nav a{
-  margin-left: 24px;
+/* Desktop nav */
+.site-header .nav-links{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.site-header .nav-links a{
   color: var(--text);
   font-size: 0.95rem;
+  padding: 10px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
 }
-nav a:hover{ text-decoration: underline; }
 
-.nav-links a.active{
+.site-header .nav-links a:hover{
+  background: rgba(255,255,255,0.06);
+}
+
+.site-header .nav-links a.active{
   color: var(--accent);
-  border-bottom: 2px solid var(--accent);
+}
+
+/* Hamburger (hidden on desktop) */
+.site-header .nav-toggle{
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.site-header .nav-toggle span{
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  margin: 4px 0;
+}
+
+/* Mobile menu */
+@media (max-width: 820px){
+  .site-header .nav-inner{
+    padding: 12px 14px;
+  }
+
+  .site-header .logo img{
+    width: 34px;
+    height: 34px;
+  }
+
+  .site-header .logo-title{
+    font-size: 1.15rem;
+  }
+
+  .site-header .nav-toggle{
+    display: block;
+  }
+
+  .site-header .nav-links{
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: var(--bg);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 12px 12px;
+  }
+
+  .site-header .nav-links.open{
+    display: flex;
+  }
+
+  .site-header .nav-links a{
+    padding: 12px 12px;
+  }
 }
 
 /* =========================
@@ -81,28 +193,27 @@ nav a:hover{ text-decoration: underline; }
    ========================= */
 .hero{
   text-align: center;
-  padding: 80px 20px 20px;
+  padding: 72px 16px 24px;
 }
 
 .hero h1{
-  font-size: 3rem;
+  font-size: 2.8rem;
   color: var(--accent);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .hero p{
   max-width: 620px;
-  margin: 0 auto 30px;
-  font-size: 1.15rem;
+  margin: 0 auto 22px;
+  font-size: 1.12rem;
   color: var(--muted2);
 }
 
 .hero p.hero-guidance{
-  margin: 18px auto 0;
+  margin: 14px auto 0;
   max-width: 620px;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--muted);
-  text-align: center;
 }
 
 /* =========================
@@ -112,57 +223,32 @@ nav a:hover{ text-decoration: underline; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 26px;
+  padding: 14px 22px;
   border-radius: 12px;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   border: 2px solid var(--accent);
   cursor: pointer;
-
-  transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease,
-    background-color 0.18s ease,
-    color 0.18s ease;
+  transition: box-shadow 0.18s ease, background-color 0.18s ease, transform 0.18s ease;
 }
 
-/* Primary = BUY NOW (pill, prominent) */
 .btn.primary{
   border-color: var(--accent2);
   background: var(--accent2);
   color: #000;
   border-radius: 999px;
   font-size: 0.95rem;
-  font-weight: 700;
   letter-spacing: 0.4px;
   text-transform: uppercase;
   box-shadow: 0 6px 18px rgba(244, 122, 0, 0.35);
 }
 
-.btn.primary:hover{
-  background: #ff8c1a;
-  box-shadow: 0 10px 26px rgba(244, 122, 0, 0.45);
-  transform: translateY(-2px);
-}
-
-.btn.primary:active{
-  transform: translateY(0);
-  box-shadow: 0 4px 14px rgba(244, 122, 0, 0.3);
-}
-
-/* Outline = secondary button style */
 .btn.outline{
   background: transparent;
   color: var(--accent);
   border-color: var(--accent);
 }
 
-.btn.outline:hover{
-  background: var(--accent);
-  color: #111;
-}
-
-/* Secondary = your Instagram CTA (outlined accent, but not "primary") */
 .btn.secondary{
   background: transparent;
   color: var(--accent2);
@@ -170,25 +256,25 @@ nav a:hover{ text-decoration: underline; }
   box-shadow: none;
 }
 
-.btn.secondary:hover{
-  background: rgba(244, 122, 0, 0.12);
-  transform: translateY(-1px);
-}
-
 /* Hover lift only on devices that support hover */
 @media (hover: hover){
   .btn:hover{
-    box-shadow: 0 6px 18px rgba(255, 122, 0, 0.25);
+    transform: translateY(-2px);
   }
   .btn.primary:hover{
+    background: #ff8c1a;
     box-shadow: 0 10px 26px rgba(244, 122, 0, 0.45);
   }
   .btn.outline:hover{
-    box-shadow: 0 6px 18px rgba(255, 122, 0, 0.35);
+    background: var(--accent);
+    color: #111;
+  }
+  .btn.secondary:hover{
+    background: rgba(244, 122, 0, 0.12);
   }
 }
 
-/* Button rows (hero + order CTAs) */
+/* Hero button row */
 .btn-row{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -199,31 +285,23 @@ nav a:hover{ text-decoration: underline; }
   align-items: center;
 }
 
-.btn-row .btn{
-  min-height: 100px;
-}
-
-/* =========================
-   SECTIONS (GENERAL)
-   ========================= */
-section{ padding: 40px 24px; }
-
-section h2{
-  font-size: 2.4rem;
-  margin-bottom: 30px;
-  text-align: center;
-  color: var(--accent);
+@media (max-width: 700px){
+  .btn-row{
+    grid-template-columns: 1fr;
+  }
 }
 
 /* =========================
    GALLERY
    ========================= */
 .gallery{
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
+  padding: 0 16px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
+  align-items: stretch;
 }
 
 .card{
@@ -231,16 +309,20 @@ section h2{
   border-radius: 14px;
   overflow: hidden;
   box-shadow: var(--shadow);
-
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
-.card img{ width: 100%; display: block; }
+.card img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
 .card-title{
   font-size: 1.05rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 14px 16px 6px;
 }
 
@@ -250,24 +332,16 @@ section h2{
   color: var(--muted2);
 }
 
-/* Card links (e.g., Anki link) */
 .card a{
   color: var(--muted2);
   font-size: 0.9rem;
   display: inline-block;
   margin-top: 6px;
 }
+
 .card a:hover{
   color: var(--accent);
   text-decoration: underline;
-}
-
-/* Align Buy Now buttons across cards */
-.card .btn.primary{
-  margin-top: auto;     /* pushes to bottom */
-  margin-left: 16px;
-  margin-right: 16px;
-  margin-bottom: 16px;
 }
 
 /* Price emphasis */
@@ -275,12 +349,40 @@ section h2{
   display: inline-block;
   margin-top: 6px;
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--accent);
 }
 
+/* BUY NOW: consistent inset + alignment across cards */
+.gallery .card .btn.primary{
+  margin-top: auto;
+  width: calc(100% - 32px);
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Prevent hover lift from making one button look "misaligned" */
+@media (hover: hover){
+  .gallery .card .btn.primary:hover{
+    transform: none;
+  }
+}
+
+@media (max-width: 480px){
+  .gallery{
+    gap: 16px;
+    padding: 0 14px;
+  }
+  .card-title{ font-size: 1rem; }
+  .card-desc{ font-size: 0.88rem; }
+  .price{ font-size: 1.1rem; }
+}
+
 /* =========================
-   ORDERING LISTS (pricing + order)
+   LISTS (PRICING / ORDERING)
    ========================= */
 .pricing-list,
 .order-list{
@@ -289,7 +391,7 @@ section h2{
   margin: 0 auto;
   padding: 0;
   color: var(--muted);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   text-align: left;
 }
 
@@ -305,7 +407,7 @@ section h2{
 .pricing-list .bullet{
   width: 18px;
   height: 18px;
-  background: orange;
+  background: var(--accent);
   border-radius: 3px;
   display: inline-block;
 }
@@ -367,7 +469,7 @@ section h2{
 .colour-card .label{
   font-size: 0.95rem;
   color: var(--text);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .swatch{
@@ -386,8 +488,8 @@ section h2{
    DETAILS + FORM
    ========================= */
 details summary{
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-weight: 800;
   color: #ff8c00;
   padding: 12px 0;
   cursor: pointer;
@@ -396,7 +498,6 @@ details summary{
 details{ margin-bottom: 20px; }
 
 form{ font-size: 1rem; }
-form label{ font-size: 1rem; }
 
 form input,
 form select,
@@ -409,20 +510,10 @@ form .btn{
   border: 2px solid var(--accent);
   background: var(--accent);
   color: #111;
-  font-weight: 600;
+  font-weight: 800;
   font-size: 1rem;
   cursor: pointer;
 }
-
-@media (hover: hover){
-  form .btn:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(255, 122, 0, 0.35);
-  }
-}
-
-/* Contact note spacing */
-.form-note{ margin-bottom: 50px; }
 
 /* =========================
    FOOTER
@@ -432,77 +523,48 @@ footer{
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-/* =========================
-   MOBILE
-   ========================= */
-@media (max-width: 700px){
-  header{
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px 16px;
-  }
-
-  .logo img{ width: 40px; height: 40px; }
-  .logo-title{ font-size: 1.2rem; }
-
-  nav{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 14px;
-  }
-  nav a{
-    margin-left: 0;
-    font-size: 0.9rem;
-    white-space: nowrap;
-  }
-
-  .hero{ padding: 70px 16px; }
-  .hero h1{ font-size: 2.2rem; }
-  .hero p{ font-size: 1.05rem; }
-
-  section{ padding: 48px 16px; }
-  section h2{ margin-bottom: 20px; }
-
-  .btn-row{
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .btn{ width: 100%; }
-
-  .pricing-list,
-  .order-list{ font-size: 1rem; }
-
-  .pricing-list li,
-  .order-list li{ margin-bottom: 12px; }
-
-  .price{ font-size: 1.1rem; }
+  padding: 24px 16px;
+  color: var(--muted);
 }
 </style>
 
+
 </head>
+
+<script>
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".nav-links");
+
+  toggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  });
+</script>
 
 <body>
 
   <!--================
       NAVBAR
     ================-->
-  <header>
-  <div class="logo">
-    <img src="logo.png" alt="ControllerCases Logo">
-    <div class="logo-title">ControllerCases</div>
-  </div>
+<header class="site-header">
+  <div class="nav-inner">
+    <div class="logo">
+      <img src="logo.png" alt="ControllerCases Logo">
+      <div class="logo-title">ControllerCases</div>
+    </div>
 
-  <nav>
-    <a href="#gallery">Gallery</a>
-    <a href="#ordering">Ordering</a>
-    <a href="anki-controllers.html">Using Controllers with Anki</a>
-    <a href="#contact">Contact</a>
-    <a href="about.html">About</a>
-  </nav>
+    <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="site-nav" class="nav-links">
+      <a href="#gallery">Gallery</a>
+      <a href="#ordering">Ordering</a>
+      <a href="anki-controllers.html">Using Controllers with Anki</a>
+      <a href="#contact">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
 </header>
 
 
